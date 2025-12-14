@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SBK Shop Order Form</title>
+  <style>
+    :root{
+      --green:#1e7f43;
+      --red:#c62828;
+      --blue:#0d47a1;
+    }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      margin:0;
+      padding:20px;
+      background: url('bg3.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .container{
+      max-width:520px;
+      margin:auto;
+      background:rgba(255,255,255,0.95);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+    .logo{
+      text-align:center;
+      margin-bottom:10px;
+    }
+    .logo img{
+      max-width:120px;
+      margin-bottom:6px;
+    }
+    .logo h1{
+      margin:0;
+      color:var(--blue);
+    }
+    .logo h3{
+      margin:4px 0 0;
+      font-size:14px;
+      color:#444;
+    }
+    h2{
+      text-align:center;
+      color:var(--green);
+      margin-bottom:5px;
+    }
+    p{
+      text-align:center;
+      font-size:14px;
+      color:#555;
+    }
+    label{
+      font-weight:bold;
+      font-size:14px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding:12px;
+      margin:6px 0 14px 0;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:15px;
+      box-sizing:border-box;
+    }
+    textarea{ resize:vertical; }
+
+    .payment{
+      background:#f5f7fa;
+      padding:12px;
+      border-radius:10px;
+      margin-bottom:15px;
+      font-size:14px;
+    }
+    .payment strong{ color:var(--blue); }
+
+    .btn{
+      width:100%;
+      background:var(--green);
+      color:#fff;
+      border:none;
+      padding:14px;
+      font-size:16px;
+      border-radius:12px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+    .btn:hover{ background:#166534; }
+
+    .whatsapp-icon{
+      width:22px;
+      height:22px;
+    }
+
+    .footer{
+      text-align:center;
+      font-size:12px;
+      color:#777;
+      margin-top:12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo">
+    <img src="SBK Logo sml.png" alt="SBK Logo">
+    <h1>SBK INVENTIVE DESIGNS</h1>
+    <h3>Namulonge – Gayaza–Zirobwe Road</h3>
+  </div>
+
+  <h2>Customer Order Form</h2>
+  <p>Labeling Uniforms • Printing • Embroidery • WiFi • Watches • Oil Perfumes • Stationery • Online Services • Club Uniforms, Patches & Insignias</p>
+
+  <div class="payment">
+    <strong>Payment Methods</strong><br>
+    MTN MoMo Pay: <b>0773 794953</b><br>
+    Airtel Money Pay: <b>0700 358071</b>
+  </div>
+
+  <form id="orderForm" action="mailto:sebajumoinvestiments@gmail.com" method="post" enctype="multipart/form-data">
+
+    <label>Customer Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <label>Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="07XXXXXXXX" required>
+
+    <label>Select Service</label>
+    <select id="service" name="service" required>
+      <option value="">-- Choose Service --</option>
+      <option>T-shirts and Printing</option>
+      <option>Embroidery / Labeling</option>
+      <option>Uniforms</option>
+      <option>Patches / Honors & Insignias</option>
+      <option>WiFi Package</option>
+      <option>Stationery</option>
+      <option>Oil Perfumes</option>
+      <option>Watches</option>
+    </select>
+
+    <label>Order Details</label>
+    <textarea id="details" name="details" rows="4" placeholder="Describe size, colors, quantity, WiFi package etc." required></textarea>
+
+    <label>Upload File (for Printing / Embroidery)</label>
+    <input type="file" name="file">
+
+    <button type="submit" class="btn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon" alt="WhatsApp">
+      Submit Order
+    </button>
+  </form>
+
+  <div class="footer">
+    SBK Shop | Namulonge – Gayaza–Zirobwe Road<br>
+    WhatsApp: 0705 117484 | 0773 794953
+  </div>
+</div>
+
+<script>
+  document.getElementById("orderForm").addEventListener("submit", function(){
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var service = document.getElementById("service").value;
+    var details = document.getElementById("details").value;
+
+    var message = "Hello SBK Inventive Designs,%0A"
+      + "Customer: " + encodeURIComponent(name) + "%0A"
+      + "Phone: " + encodeURIComponent(phone) + "%0A"
+      + "Service: " + encodeURIComponent(service) + "%0A"
+      + "Details: " + encodeURIComponent(details) + "%0A"
+      + "Payment: MTN 0773794953 / Airtel 0700358071";
+
+    window.open("https://wa.me/256705117484?text=" + message, "_blank");
+  });
+</script>
+
+</body>
+</html>
